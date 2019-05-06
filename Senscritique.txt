@@ -1,0 +1,41 @@
+LIVRES
+Date       = 1927-1924
+Général    = 8.1-7.6
+Eclaireurs = 7.3-7.5
+Nombre     = 30627-17330
+SLM		   = 4.3-6.0
+
+BD
+Date       = 1991-1995
+Général    = 6.4-6.8
+Eclaireurs = 6.9-7.2
+Nombre     = 4917-7217
+SLM		   = 6.1-7.0
+
+SERIES
+Date       = 2007-2007+
+Général    = 6.2-7.0
+Eclaireurs = 6.1-7.5
+Nombre     = 9140-12678
+SLM		   = 5.4-8.5
+
+ALBUMS
+Date       = 1997-2001
+Général    = 7.6-7.5
+Eclaireurs = 8.0-8.2
+Nombre     = 4728-3775
+SLM		   = 5.7-8.6
+
+FILMS
+Date       = 2001-2002
+Général    = 5.7-6.2
+Eclaireurs = 6.5-7.2
+Nombre     = 20229-26479
+SLM		   = 6.1-8.1
+
+JEUX-VIDEOS
+Date       = 2009-2009+
+Général    = 6.5-7.0
+Eclaireurs = 7.4-7.9
+Nombre     = 1723-3801
+SLM		   = 4.9-7.4
