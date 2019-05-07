@@ -2,9 +2,9 @@
 "update_url": "https://clients2.google.com/service/update2/crx",
 
 "manifest_version": 2,
-    "name": "SC_LoveMeter",
-    "description": "Une nouvelle manière de noter ses oeuvres préferées.",
-    "version": "0.3",
+    "name": "AmazonChooser",
+    "description": "Comment faire des achats plus avisés ?",
+    "version": "1.0.0",
     "content_scripts": [
         {
             "matches": [
@@ -29,6 +29,6 @@
     },
     "permissions": [
         "storage",
-        "tabs"
+		"https://www.amazon.fr/*"
     ]
 }
