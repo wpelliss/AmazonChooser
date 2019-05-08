@@ -4,7 +4,7 @@
 "manifest_version": 2,
     "name": "AmazonChooser",
     "description": "Comment faire des achats plus avisés ?",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "content_scripts": [
         {
             "matches": [
@@ -28,7 +28,6 @@
         "128": "icon128.png"
     },
     "permissions": [
-        "storage",
 		"https://www.amazon.fr/*"
     ]
 }
