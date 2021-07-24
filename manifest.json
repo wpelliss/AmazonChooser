@@ -1,10 +1,10 @@
 {
 "update_url": "https://clients2.google.com/service/update2/crx",
 
-"manifest_version": 2,
+"manifest_version": 3,
     "name": "AmazonChooser",
     "description": "Comment faire des achats plus avisés ?",
-    "version": "1.1.1",
+    "version": "1.2",
     "content_scripts": [
         {
             "matches": [
@@ -17,7 +17,7 @@
         }
     ]
     ,
-	"browser_action": {
+	"action": {
 		"default_icon": "icon32.png"
 	}
 	,
@@ -27,7 +27,7 @@
         "48": "icon48.png",
         "128": "icon128.png"
     },
-    "permissions": [
+    "host_permissions": [
 		"https://www.amazon.fr/*"
     ]
 }
