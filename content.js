@@ -12,7 +12,7 @@ window.onload = function () {
 		if (path == "gp") {
 			page = document.getElementById("zg-ordered-list").getElementsByClassName("a-list-item");
 			path1 = "a-size-small a-link-normal";
-
+			path2 = "a-link-normal a-text-normal";
 		}
 
 		var liste = [];
@@ -26,7 +26,13 @@ window.onload = function () {
 			var num = page[i].getElementsByClassName(path1)[0].innerHTML;
 			num = num.indexOf('&nbsp;') >= 0 ? num.split('&nbsp;').join('') : num;
 			num = num.replace(/\D/g,'');
-			var score = ((note[0] + note[2]) - 44) * num;
+			var prix = page[i].getElementsByClassName("p13n-sc-price")[0];
+			if (!prix)
+				continue;
+			else
+				prix = prix.innerHTML;
+			prix = prix.split('&nbsp;').join('').split(',').join('').split('€').join('');
+			var score = Math.round(((note[0] + note[2]) - 44) * num * prix / 100000);
 			if (score > 0) {
 				liste.push(score);
 			}
@@ -41,8 +47,13 @@ window.onload = function () {
 			var num = page[i].getElementsByClassName(path1)[0].innerHTML;
 			num = num.indexOf('&nbsp;') >= 0 ? num.split('&nbsp;').join('') : num;
 			num = num.replace(/\D/g,'');
-			var score = ((note[0] + note[2]) - 44) * num;
-			
+			var prix = page[i].getElementsByClassName("p13n-sc-price")[0];
+			if (!prix)
+				continue;
+			else
+				prix = prix.innerHTML;
+			prix = prix.split('&nbsp;').join('').split(',').join('').split('€').join('');
+			var score = Math.round(((note[0] + note[2]) - 44) * num * prix / 100000);
 			var color = "Grey";
 			var message = "";
 			
@@ -50,15 +61,15 @@ window.onload = function () {
 			{
 				color = "Black";
 			}
-			if (score >= Math.max.apply(Math, liste) / 4)
+			if (score >= Math.max.apply(Math, liste) / 6)
 			{
-				color = "Blue";
+				color = "Green";
 				message = "Convenable";
 			}
 			if (score >= Math.max.apply(Math, liste) / 2)
 			{
-				color = "Green";
-				message = "Bonne offre";
+				color = "Blue";
+				message = "Super offre";
 			}
 			if (score == Math.max.apply(Math, liste))
 			{
