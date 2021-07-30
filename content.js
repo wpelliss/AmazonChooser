@@ -33,9 +33,7 @@ window.onload = function () {
 				prix = prix.innerHTML;
 			prix = prix.split('&nbsp;').join('').split(',').join('').split('€').join('');
 			var score = Math.round(((note[0] + note[2]) - 44) * num * prix / 100000);
-			if (score > 0) {
-				liste.push(score);
-			}
+			liste.push(score);
 		}
 
 		for (var i = 0; i < page.length; i++) {
@@ -64,13 +62,7 @@ window.onload = function () {
 			var min = Math.min.apply(Math, liste);
 			var max = Math.max.apply(Math, liste);
 			
-			var indexScore = Math.round((liste.findIndex((element) => element == score) + 1) / liste.length * 100) + "%";
-			
-			score = (score - min) / (max - min);
-			
-			scoreLimite1 = (liste[Math.round(liste.length * 0.50)] - min) / (max - min);
-			scoreLimite2 = (liste[Math.round(liste.length * 0.75)] - min) / (max - min);
-			scoreLimite3 = (liste[Math.round(liste.length * 0.95)] - min) / (max - min);
+			var indexScore = Math.round((liste.findIndex((element) => element == score) + 1) / liste.length * 100);
 			
 			if (score <= 0)
 			{
@@ -82,17 +74,17 @@ window.onload = function () {
 				color = "Black";
 				message = "Ordinaire";
 			}
-			if (score >= scoreLimite1)
+			if (indexScore >= 50)
 			{
 				color = "Green";
 				message = "Rare";
 			}
-			if (score >= scoreLimite2)
+			if (indexScore >= 75)
 			{
 				color = "Purple";
 				message = "Épique";
 			}
-			if (score >= scoreLimite3)
+			if (indexScore >= 95)
 			{
 				color = "Orange";
 				message = "Légendaire";
@@ -101,10 +93,10 @@ window.onload = function () {
 			score = indexScore;
 
 			if (path == "s") {
-				document.getElementsByClassName("s-result-list")[0].getElementsByClassName("s-result-item")[i].getElementsByClassName("a-size-base")[0].parentNode.parentNode.innerHTML += "<br/><b><div style=\"color:" + color + ";\"> " + message + " (" + score + ") </div></b>";
+				document.getElementsByClassName("s-result-list")[0].getElementsByClassName("s-result-item")[i].getElementsByClassName("a-size-base")[0].parentNode.parentNode.innerHTML += "<br/><b><div style=\"color:" + color + ";\"> " + message + " (" + score + "%) </div></b>";
 			}
 			if (path == "gp") {
-				document.getElementById("zg-ordered-list").getElementsByClassName("a-list-item")[i].getElementsByClassName("a-size-small a-link-normal")[0].parentNode.parentNode.innerHTML += "<b><div style=\"color:" + color + ";\"> " + message + " (" + score + ") </div></b><br/>";
+				document.getElementById("zg-ordered-list").getElementsByClassName("a-list-item")[i].getElementsByClassName("a-size-small a-link-normal")[0].parentNode.parentNode.innerHTML += "<b><div style=\"color:" + color + ";\"> " + message + " (" + score + "%) </div></b><br/>";
 			}
 		}
 	}
