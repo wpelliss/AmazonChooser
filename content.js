@@ -57,25 +57,48 @@ window.onload = function () {
 			var color = "Grey";
 			var message = "";
 			
+			liste.sort(function(a, b) {
+			  return a - b;
+			});
+			
+			var min = Math.min.apply(Math, liste);
+			var max = Math.max.apply(Math, liste);
+			
+			var indexScore = Math.round((liste.findIndex((element) => element == score) + 1) / liste.length * 100) + "%";
+			
+			score = (score - min) / (max - min);
+			
+			scoreLimite1 = (liste[Math.round(liste.length * 0.50)] - min) / (max - min);
+			scoreLimite2 = (liste[Math.round(liste.length * 0.75)] - min) / (max - min);
+			scoreLimite3 = (liste[Math.round(liste.length * 0.95)] - min) / (max - min);
+			
+			if (score <= 0)
+			{
+				color = "Brown";
+				message = "Déchet";
+			}
 			if (score > 0)
 			{
 				color = "Black";
+				message = "Ordinaire";
 			}
-			if (score >= Math.max.apply(Math, liste) / 6)
+			if (score >= scoreLimite1)
 			{
 				color = "Green";
-				message = "Convenable";
+				message = "Rare";
 			}
-			if (score >= Math.max.apply(Math, liste) / 2)
+			if (score >= scoreLimite2)
 			{
-				color = "Blue";
-				message = "Super offre";
+				color = "Purple";
+				message = "Épique";
 			}
-			if (score == Math.max.apply(Math, liste))
+			if (score >= scoreLimite3)
 			{
-				color = "Red";
-				message = "MEILLEURE OFFRE";
+				color = "Orange";
+				message = "Légendaire";
 			}
+			
+			score = indexScore;
 
 			if (path == "s") {
 				document.getElementsByClassName("s-result-list")[0].getElementsByClassName("s-result-item")[i].getElementsByClassName("a-size-base")[0].parentNode.parentNode.innerHTML += "<br/><b><div style=\"color:" + color + ";\"> " + message + " (" + score + ") </div></b>";
